@@ -1,34 +1,577 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Foundation</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>آفاق</title>
+    <link rel="icon" href="icons/invertcrop.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @font-face {
+            font-family: 'sky-bold';
+            src: url('fonts/sky-bold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'sky';
+            src: url('fonts/sky.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'saudi';
+            src: url('fonts/saudi.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('images/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            /* Main background */
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/overbg.png') no-repeat center center fixed;
+            background-size: cover;
+            /* Overlay background */
+            opacity: 0.9;
+            /* Adjust overlay opacity */
+            z-index: -1;
+            /* Ensure it stays behind all content */
+        }
+
+
+        header {
+            background-color: #2C3E50;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            height: 45px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 15px 20px;
+            width: 100%;
+            height: 80px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            /* Keeps it at the top of the viewport when scrolling */
+            z-index: 1000;
+            opacity: 1;
+            /* Default opacity */
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Slightly transparent background */
+            opacity: 0.9;
+            /* Reduced opacity on scroll */
+        }
+
+
+        .navbar .logo img {
+            height: 40px;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            border-left: 1px solid #c3c3c3;
+            padding-left: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-grow: 1;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .navbar ul li a {
+            color: #2C3E50;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            position: relative;
+            /* This is needed for the pseudo-element positioning */
+            font-size: 20px;
+            /* Adjust font size as needed */
+            font-family: 'sky-bold', serif;
+        }
+
+        .navbar ul li a::after,
+        .navbar ul li a::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .navbar ul li a::after {
+            opacity: 0;
+            /* Default state */
+            bottom: -10px;
+            width: 10px;
+            height: 10px;
+            background-color: #2C3E50;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover:not(.animated)::after {
+            opacity: 1;
+            /* Show circle on hover */
+        }
+
+        .navbar ul li a.animated::after {
+            opacity: 1;
+            /* Keep line visible */
+            width: 100%;
+            /* Full-width line */
+            height: 2px;
+            /* Line thickness */
+            border-radius: 0;
+            left: 0;
+            transform: none;
+        }
+
+
+
+        .navbar ul li a::before {
+            bottom: -9px;
+            /* Adjust to center the line through the circle */
+            width: 20px;
+            /* Line length */
+            height: 2px;
+            /* Line thickness */
+            background-color: white;
+            /* Line color */
+        }
+
+        .navbar ul li a.initiatives::after {
+            background-color: #2196F3;
+            /* Blue */
+        }
+
+        .navbar ul li a.initiatives::before {
+            background-color: #2196F3;
+            /* Blue */
+        }
+
+        .navbar ul li a.projects::after {
+            background-color: #EDA035;
+            /* Blue */
+        }
+
+        .navbar ul li a.projects::before {
+            background-color: #EDA035;
+            /* Blue */
+        }
+
+        .navbar ul li a.donate::after {
+            background-color: #54BC38;
+            /* Blue */
+        }
+
+        .navbar ul li a.donate::before {
+            background-color: #54BC38;
+            /* Blue */
+        }
+
+        .navbar ul li a.aboutus::after {
+            background-color: #3F51B5;
+            /* Blue */
+        }
+
+        .navbar ul li a.aboutus::before {
+            background-color: #3F51B5;
+            /* Blue */
+        }
+
+        .navbar ul li a.contactus::after {
+            background-color: #96B2C3;
+            /* Blue */
+        }
+
+        .navbar ul li a.contactus::before {
+            background-color: #96B2C3;
+            /* Blue */
+        }
+
+        .navbar ul li a:hover::after,
+        .navbar ul li a:focus::after,
+        .navbar ul li a:active::after {
+            opacity: 1;
+        }
+
+        .navbar ul li a:hover::before,
+        .navbar ul li a:focus::before,
+        .navbar ul li a:active::before {
+            opacity: 0;
+        }
+
+        .navbar ul li a img {
+            margin-left: 10px;
+            /* Add space to the left of the SVG icon */
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .icons i {
+            color: white;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .background-section {
+            position: relative;
+            height: 1000vh;
+
+        }
+
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            justify-content: center;
+            /* Centers the grid content */
+            gap: 20px;
+            /* Adds spacing between achievements */
+            text-align: center;
+            padding: 20px;
+            margin: 0 auto;
+            /* Centers the container itself */
+            max-width: 1000px;
+            /* Ensures the container doesn’t stretch too wide */
+            box-sizing: border-box;
+            /* Includes padding and border in the element's total width and height */
+            transform: translateX(+3%) translateY(+10%) scale(0.8);
+        }
+
+
+        .achievement {
+            background-color: #f7f7f7;
+            width: 200px;
+            /* Fixed width for each achievement box */
+            height: 200px;
+            /* Base background color */
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            overflow: hidden;
+            position: relative;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            /* Arrange the child elements vertically */
+            align-items: center;
+            /* Center-align the elements */
+            justify-content: space-around;
+            /* Distribute space evenly */
+            background: radial-gradient(circle, #ffffff, #eaeaea);
+        }
+
+        .achievement .icon {
+            width: 80px;
+            /* Icon size */
+            height: 80px;
+            /* Icon size */
+            position: relative;
+            /* Set to relative instead of absolute */
+
+            /* Centering adjustments */
+        }
+
+
+        .achievement h1 {
+            font-size: 40px;
+            margin: 0;
+            color: #2C3E50;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .achievement p {
+
+            margin: 0;
+            /* Remove default margins */
+            font-size: 25px;
+            /* Font size */
+            color: #555;
+            /* Text color */
+            font-family: 'saudi', serif;
+            /* Ensure proper fallback */
+            display: flex;
+            /* Use flex to align text horizontally */
+            justify-content: center;
+            /* Center the text */
+            align-items: center;
+            /* Align items vertically */
+            word-wrap: break-word;
+            /* Ensure words wrap correctly */
+            text-align: center;
+        }
+
+        /* Donate Button */
+        .donate-section {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            transform: translateY(20px);
+            /* Adjust vertical positioning */
+        }
+
+        .donate-button {
+            background-color: #54BC38;
+            color: white;
+            font-size: 20px;
+            padding: 10px 60px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .donate-button:hover {
+            background-color: #3a8e29;
+        }
+
+        .org-container {
+            margin: 0;
+            transform: translateY(30%) translateX(0);
+            padding: 80px;
+            background-color: #f0f8ef;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 2fr;
+            column-gap: 5px;
+        }
+
+        .org-container div img {
+            margin: 0;
+        }
+
+        .org-description {
+            padding: 0 20px;
+
+            /* Remove horizontal shift */
+
+            width: 100%;
+
+            /* Full-width */
+            box-sizing: border-box;
+            /* Include padding in width calculation */
+
+            text-align: right;
+            color: #2C3E50;
+            font-family: 'saudi', serif;
+        }
+
+
+        .org-description h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+            text-align: right;
+            /* Change to left, center, or right as needed */
+            direction: rtl;
+            /* Ensures proper alignment for Arabic text */
+            margin: 0;
+
+        }
+
+        .org-description p {
+            font-family: 'saudi', serif;
+            font-size: 30px;
+            line-height: 1.6;
+            text-align: right;
+            /* Change to left, center, or right as needed */
+            direction: rtl;
+            margin: 0;
+            /* Ensures proper alignment for Arabic text */
+        }
+
+        .org-description p p {
+            font-family: 'saudi', serif;
+            margin: 0;
+
+            font-size: 30px;
+            line-height: 1.6;
+            text-align: right;
+            /* Change to left, center, or right as needed */
+            direction: rtl;
+            /* Ensures proper alignment for Arabic text */
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>Charity Foundation</h1>
-        <nav>
+    <header>مؤسسة آفاق التطوعية | AAFAQQ FOUNDATION</header>
+    <div class="container">
+        <div class="navbar">
+            <div class="icons"> <i class="fas fa-user"></i> <i class="fas fa-search"></i> </div>
             <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Our Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <a href="#contactus" class="contactus">
+                        تواصل معنا
+                        <img src="icons2/contact.svg" width="30" height="30" alt="Icon">
+                    </a>
+                </li>
+                <li>
+                    <a href="#aboutus" class="aboutus">
+                        من نحن؟
+                        <img src="icons2/aboutus.svg" width="30" height="30" alt="Icon">
+                    </a>
+                </li>
+                <li>
+                    <a href="#donate" class="donate">
+                        كيف تتبرع؟
+                        <img src="icons2/donate.svg" width="30" height="30" alt="Icon">
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects" class="projects">
+                        المشاريع
+                        <img src="icons2/projects.svg" width="30" height="30" alt="Icon">
+                    </a>
+                </li>
+                <li>
+                    <a href="#initiatives" class="initiatives">
+                        المبادرات
+                        <img src="icons2/collab.svg" width="30" height="30" alt="Icon">
+                    </a>
+                </li>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="icons/invertcrop.png" alt="Logo">
+                    </a>
+                </div>
             </ul>
-        </nav>
-    </header>
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Welcome to our Charity Foundation. We are dedicated to making the world a better place.</p>
-    </section>
-    <section id="services">
-        <h2>Our Services</h2>
-        <p>We offer a variety of services to help those in need.</p>
-    </section>
-    <footer id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: info@charityfoundation.org</p>
-    </footer>
-    <script src="scripts.js"></script>
+        </div>
+
+        <div class="background-section">
+            <div class="achievements">
+                <div class="achievement achievement-2">
+                    <h1>98+</h1>
+                    <img src="icons2/cloth.svg" alt="Icon" class="icon">
+                    <p>كسوة للأطفال</p>
+                </div>
+                <div class="achievement achievement-3">
+                    <h1>₪52000+</h1>
+                    <img src="icons2/money.svg" alt="Icon" class="icon">
+                    <p>مساعدات نقدية</p>
+                </div>
+                <div class="achievement achievement-1">
+                    <h1>180+</h1>
+                    <img src="icons2/food.svg" alt="Icon" class="icon">
+                    <p>مساعدات غذائية</p>
+                </div>
+            </div>
+
+
+            <div class="donate-section">
+                <button class="donate-button">تبرع</button>
+            </div>
+
+            <!-- Organization Description -->
+            <div class="org-container">
+
+                <div class="org-image">
+                    <img id="changing-image" src="gallery/01-12-24/5359430019706906763.jpg" alt="Organization Image"
+                        width="90%">
+                </div>
+                <div class="org-description">
+                    <img id="changing-image" src="icons/invert.png" alt="Organization Icon" width="120" height="120"
+                        class="org-icon">
+                    <p dir="rtl">
+                        <b>
+                            <<دعوة للتغيير ونشر العدالة ورسم أفق بالحوار والدعم الجاد المعنوي والمادي والإعلامي>>
+                        </b>
+                    </p>
+                    <p dir="rtl">
+                        <b>مؤسسة آفاق</b> هي منظمة اجتماعية تهدف إلى نشر العدل ودعم المجتمعات في جميع أنحاء العالم. نبحث
+                        عن شباب متطوعين يمتلكون شغف القيادة وروح التطوع للمساهمة في تحقيق تأثير إيجابي حقيقي.
+                    </p>
+
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+
+    <script>
+        document.querySelectorAll('.navbar ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove 'animated' class from all links
+                document.querySelectorAll('.navbar ul li a').forEach(el => el.classList.remove('animated'));
+
+                // Add 'animated' class to the clicked link
+                link.classList.add('animated');
+            });
+        });
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) { /* Change 50 to the desired scroll amount */
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        const images = ["gallery/01-12-24/5359430019706906763.jpg", "gallery/29-12-24/5442942368832678415.jpg", "gallery/03-12-24/5366581071535268658.jpg",]; // List your image paths here
+        let currentImageIndex = 0;
+
+        function changeImage() {
+            const imageElement = document.getElementById("changing-image");
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            imageElement.src = images[currentImageIndex];
+        }
+
+        setInterval(changeImage, 5000); // Change image every 5 seconds
+
+    </script>
 </body>
+
 </html>
