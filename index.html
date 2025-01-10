@@ -31,13 +31,20 @@
         }
 
         body {
+            user-select: none;
             margin: 0;
             padding: 0;
             background: url('images/bg.jpg') no-repeat center center fixed;
             background-size: cover;
-            /* Main background */
             position: relative;
         }
+
+        img {
+            /* Prevent dragging in browsers that support this property */
+            -webkit-user-drag: none;
+            /* For Safari */
+        }
+
 
         body::before {
             content: '';
@@ -48,13 +55,9 @@
             height: 100%;
             background: url('images/overbg.png') no-repeat center center fixed;
             background-size: cover;
-            /* Overlay background */
             opacity: 0.9;
-            /* Adjust overlay opacity */
             z-index: -1;
-            /* Ensure it stays behind all content */
         }
-
 
         header {
             background-color: #2C3E50;
@@ -79,18 +82,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             position: sticky;
             top: 0;
-            /* Keeps it at the top of the viewport when scrolling */
             z-index: 1000;
             opacity: 1;
-            /* Default opacity */
         }
 
-        .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.9);
-            /* Slightly transparent background */
-            opacity: 0.9;
-            /* Reduced opacity on scroll */
-        }
 
 
         .navbar .logo img {
@@ -125,9 +120,7 @@
             align-items: center;
             padding: 10px;
             position: relative;
-            /* This is needed for the pseudo-element positioning */
             font-size: 20px;
-            /* Adjust font size as needed */
             font-family: 'sky-bold', serif;
         }
 
@@ -143,7 +136,6 @@
 
         .navbar ul li a::after {
             opacity: 0;
-            /* Default state */
             bottom: -10px;
             width: 10px;
             height: 10px;
@@ -156,82 +148,62 @@
 
         .navbar ul li a:hover:not(.animated)::after {
             opacity: 1;
-            /* Show circle on hover */
         }
 
         .navbar ul li a.animated::after {
             opacity: 1;
-            /* Keep line visible */
             width: 100%;
-            /* Full-width line */
             height: 2px;
-            /* Line thickness */
             border-radius: 0;
             left: 0;
             transform: none;
         }
 
-
-
         .navbar ul li a::before {
             bottom: -9px;
-            /* Adjust to center the line through the circle */
             width: 20px;
-            /* Line length */
             height: 2px;
-            /* Line thickness */
             background-color: white;
-            /* Line color */
         }
 
         .navbar ul li a.initiatives::after {
             background-color: #2196F3;
-            /* Blue */
         }
 
         .navbar ul li a.initiatives::before {
             background-color: #2196F3;
-            /* Blue */
         }
 
         .navbar ul li a.projects::after {
             background-color: #EDA035;
-            /* Blue */
         }
 
         .navbar ul li a.projects::before {
             background-color: #EDA035;
-            /* Blue */
         }
 
         .navbar ul li a.donate::after {
             background-color: #54BC38;
-            /* Blue */
         }
 
         .navbar ul li a.donate::before {
             background-color: #54BC38;
-            /* Blue */
         }
 
         .navbar ul li a.aboutus::after {
             background-color: #3F51B5;
-            /* Blue */
         }
 
         .navbar ul li a.aboutus::before {
             background-color: #3F51B5;
-            /* Blue */
         }
 
         .navbar ul li a.contactus::after {
             background-color: #96B2C3;
-            /* Blue */
         }
 
         .navbar ul li a.contactus::before {
             background-color: #96B2C3;
-            /* Blue */
         }
 
         .navbar ul li a:hover::after,
@@ -248,7 +220,6 @@
 
         .navbar ul li a img {
             margin-left: 10px;
-            /* Add space to the left of the SVG icon */
         }
 
         .icons {
@@ -265,36 +236,26 @@
 
         .background-section {
             position: relative;
-            height: 1000vh;
-
+            height: auto;
         }
-
 
         .achievements {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             justify-content: center;
-            /* Centers the grid content */
             gap: 20px;
-            /* Adds spacing between achievements */
             text-align: center;
             padding: 20px;
             margin: 0 auto;
-            /* Centers the container itself */
-            max-width: 1000px;
-            /* Ensures the container doesn’t stretch too wide */
+            max-width: 1200px;
             box-sizing: border-box;
-            /* Includes padding and border in the element's total width and height */
-            transform: translateX(+3%) translateY(+10%) scale(0.8);
+            transform: translateY(+10%) scale(0.8);
         }
-
 
         .achievement {
             background-color: #f7f7f7;
             width: 200px;
-            /* Fixed width for each achievement box */
             height: 200px;
-            /* Base background color */
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
             overflow: hidden;
@@ -302,25 +263,16 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            /* Arrange the child elements vertically */
             align-items: center;
-            /* Center-align the elements */
             justify-content: space-around;
-            /* Distribute space evenly */
             background: radial-gradient(circle, #ffffff, #eaeaea);
         }
 
         .achievement .icon {
             width: 80px;
-            /* Icon size */
             height: 80px;
-            /* Icon size */
             position: relative;
-            /* Set to relative instead of absolute */
-
-            /* Centering adjustments */
         }
-
 
         .achievement h1 {
             font-size: 40px;
@@ -330,53 +282,55 @@
         }
 
         .achievement p {
-
             margin: 0;
-            /* Remove default margins */
             font-size: 25px;
-            /* Font size */
             color: #555;
-            /* Text color */
             font-family: 'saudi', serif;
-            /* Ensure proper fallback */
             display: flex;
-            /* Use flex to align text horizontally */
             justify-content: center;
-            /* Center the text */
             align-items: center;
-            /* Align items vertically */
             word-wrap: break-word;
-            /* Ensure words wrap correctly */
             text-align: center;
         }
 
-        /* Donate Button */
         .donate-section {
             display: flex;
             justify-content: center;
             position: relative;
             transform: translateY(20px);
-            /* Adjust vertical positioning */
+            margin-bottom: 10%;
         }
 
         .donate-button {
-            background-color: #54BC38;
-            color: white;
-            font-size: 20px;
-            padding: 10px 60px;
-            border: none;
-            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            font-family: "Dosis", sans-serif;
+        }
+
+        .donate-button {
+            width: 150px;
+            height: 60px;
+            border-radius: 50px;
+            background-image: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+            box-shadow: 0 20px 30px -6px rgba(86, 171, 47, 0.5);
+            font-family: 'sky', serif;
+            outline: none;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            border: none;
+            font-size: 24px;
+            color: white;
         }
 
         .donate-button:hover {
-            background-color: #3a8e29;
+            transform: translateY(3px);
+            box-shadow: none;
+        }
+
+        .donate-button:active {
+            opacity: 0.5;
         }
 
         .org-container {
             margin: 0;
-            transform: translateY(30%) translateX(0);
             padding: 80px;
             background-color: #f0f8ef;
             display: grid;
@@ -391,53 +345,350 @@
 
         .org-description {
             padding: 0 20px;
-
-            /* Remove horizontal shift */
-
             width: 100%;
-
-            /* Full-width */
             box-sizing: border-box;
-            /* Include padding in width calculation */
-
             text-align: right;
             color: #2C3E50;
             font-family: 'saudi', serif;
         }
 
-
         .org-description h2 {
+            user-select: text;
             font-size: 30px;
             margin-bottom: 15px;
             text-align: right;
-            /* Change to left, center, or right as needed */
             direction: rtl;
-            /* Ensures proper alignment for Arabic text */
             margin: 0;
-
         }
 
         .org-description p {
+            user-select: text;
             font-family: 'saudi', serif;
             font-size: 30px;
             line-height: 1.6;
             text-align: right;
-            /* Change to left, center, or right as needed */
             direction: rtl;
             margin: 0;
-            /* Ensures proper alignment for Arabic text */
         }
 
         .org-description p p {
             font-family: 'saudi', serif;
             margin: 0;
-
             font-size: 30px;
             line-height: 1.6;
             text-align: right;
-            /* Change to left, center, or right as needed */
             direction: rtl;
-            /* Ensures proper alignment for Arabic text */
+        }
+
+        .join-section {
+            margin-top: 20px;
+            user-select: none;
+        }
+
+        .join-button {
+            background-color: #2C3E50;
+            color: white;
+            font-size: 20px;
+            padding: 10px 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .join-button:hover {
+            background-color: #2c3e50db;
+        }
+
+        .compaigns-container {
+            max-width: 100%;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .compaign-h {
+            padding-right: 20px;
+            font-size: 20px;
+            font-family: 'Sky-Bold', serif;
+            font-weight: bold;
+            color: #2C3E50;
+            line-height: 1.3;
+            text-shadow: 2px 2px 5px rgba(94, 93, 93, 0.5);
+        }
+
+        .compaigns-slider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 20px;
+            direction: rtl;
+        }
+
+        .compaigns-slider:active {
+            cursor: grabbing;
+        }
+
+        .compaigns-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .compaigns-slider::-webkit-scrollbar-thumb {
+            background-color: #2C3E50;
+            border-radius: 4px;
+        }
+
+        .compaign {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 3px solid #ffffff;
+            border-radius: 15px;
+            width: 500px;
+            height: 300px;
+            position: relative;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 35px;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .compaign::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(90, 161, 200, 0.5));
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+        .compaign.compaign2::before {
+            background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(156, 200, 90, 0.5));
+        }
+
+        .compaign.compaign3::before {
+            background: linear-gradient(to top right, rgba(0, 0, 0, 0.2), rgba(90, 200, 106, 0.5));
+        }
+
+        .compaign h1 {
+            font-size: 40px;
+            font-family: 'sky-bold', serif;
+        }
+
+        .compaign h1,
+        .compaign button {
+            position: relative;
+            z-index: 2;
+        }
+
+        .compaign-btn {
+            max-width: 100px;
+            max-height: 50px;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 12.5px 30px;
+            border: 0;
+            background-color: #fdfdfd;
+            color: #000;
+            font-weight: Bold;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+        }
+
+        .compaign-btn:hover {
+            box-shadow: 0 0 20px #6fc5ff50;
+            transform: scale(1.1);
+        }
+
+        .compaign-more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            background-color: #2C3E50;
+            color: white;
+            border-radius: 50%;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            flex-shrink: 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .projects-container {
+            max-width: 100%;
+            overflow-x: hidden;
+            padding: 20px;
+
+        }
+
+        .projects-slider {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 20px;
+            direction: rtl;
+            user-select: none;
+
+        }
+
+        .project-h {
+            padding-right: 20px;
+            font-size: 20px;
+            font-family: 'Sky-Bold', serif;
+            font-weight: bold;
+            color: #2C3E50;
+            line-height: 1.3;
+            text-shadow: 2px 2px 5px rgba(94, 93, 93, 0.5);
+        }
+
+        .projects-slider:active {
+            cursor: grabbing;
+        }
+
+        .projects-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .projects-slider::-webkit-scrollbar-thumb {
+            background-color: #2C3E50;
+            border-radius: 4px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            flex-shrink: 0;
+            gap: 10px;
+        }
+
+        .project-bg {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .project-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-bg:hover img {
+            transform: scale(1.1);
+            /* Zoom effect on hover */
+        }
+
+        .project-date {
+            position: absolute;
+            top: -30px;
+            /* Position it above the container (hidden initially) */
+            left: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 17px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #2C3E50;
+            font-weight: bold;
+            opacity: 0;
+            /* Initially hidden */
+            pointer-events: none;
+            /* Avoid interaction */
+            transition: top 0.3s ease, opacity 0.3s ease;
+            /* Animate both top and opacity */
+            z-index: 2;
+        }
+
+        .project-bg:hover .project-date {
+            top: 10px;
+            /* Move the date into view */
+            opacity: 1;
+            /* Make the date visible */
+        }
+
+        .project-info {
+            background-color: #2C3E50;
+            padding: 10px 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            /* Ensure it matches the width of the project-bg */
+            min-height: 80px;
+            /* Adjust to your preference */
+            box-sizing: border-box;
+            /* Ensure padding is included in height */
+        }
+
+        .project-info h2 {
+            font-size: 18px;
+            font-family: 'sa';
+            color: #f4f4f4;
+            font-family: 'sky-bold', serif;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .p-achievements {
+            font-size: 14px;
+            color: #f4f4f4;
+            font-weight: bold;
+            font-family: 'sky-bold', serif;
+            display: inline-block;
+        }
+
+        .p-achievements span {
+            font-size: 14px;
+            color: #f4f4f4;
+            font-weight: bold;
+            font-family: 'sky-bold', serif;
+            display: inline-block;
+            opacity: 1;
+            /* Ensure 'إنجاز' is visible */
+            transform: translateY(0);
+            /* Ensure it's in the correct position */
+            transition: all 0.5s ease-in-out;
+        }
+
+        .project-more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            background-color: #2C3E50;
+            color: white;
+            border-radius: 50%;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            flex-shrink: 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -474,7 +725,7 @@
                 </li>
                 <li>
                     <a href="#initiatives" class="initiatives">
-                        المبادرات
+                        الحملات
                         <img src="icons2/collab.svg" width="30" height="30" alt="Icon">
                     </a>
                 </li>
@@ -485,16 +736,20 @@
                 </div>
             </ul>
         </div>
-
         <div class="background-section">
             <div class="achievements">
+                <div class="achievement achievement-4">
+                    <h1>15+</h1>
+                    <img src="icons2/camp.svg" alt="Icon" class="icon">
+                    <p>مساعدات خيم وشودار</p>
+                </div>
                 <div class="achievement achievement-2">
-                    <h1>98+</h1>
+                    <h1>143+</h1>
                     <img src="icons2/cloth.svg" alt="Icon" class="icon">
                     <p>كسوة للأطفال</p>
                 </div>
                 <div class="achievement achievement-3">
-                    <h1>₪52000+</h1>
+                    <h1>142+</h1>
                     <img src="icons2/money.svg" alt="Icon" class="icon">
                     <p>مساعدات نقدية</p>
                 </div>
@@ -504,17 +759,13 @@
                     <p>مساعدات غذائية</p>
                 </div>
             </div>
-
-
             <div class="donate-section">
                 <button class="donate-button">تبرع</button>
             </div>
-
             <!-- Organization Description -->
             <div class="org-container">
-
                 <div class="org-image">
-                    <img id="changing-image" src="gallery/01-12-24/5359430019706906763.jpg" alt="Organization Image"
+                    <img id="changing-image" src="gallery/24-12-01/5359430019706906763.jpg" alt="Organization Image"
                         width="90%">
                 </div>
                 <div class="org-description">
@@ -529,47 +780,219 @@
                         <b>مؤسسة آفاق</b> هي منظمة اجتماعية تهدف إلى نشر العدل ودعم المجتمعات في جميع أنحاء العالم. نبحث
                         عن شباب متطوعين يمتلكون شغف القيادة وروح التطوع للمساهمة في تحقيق تأثير إيجابي حقيقي.
                     </p>
-
-
+                    <div class="join-section">
+                        <button class="join-button">للإنضمام</button>
+                    </div>
                     </p>
-
                 </div>
             </div>
+            <div class="compaigns-container" dir="rtl">
+                <div class="compaign-h">
+                    <h1>الحملات</h1>
+                </div>
+                <div class="compaigns-slider">
+                    <div class="compaign compaign1" style="background-image: url('images/compaigns/1.png');">
+                        <h1>إيد بإيد الخير يزيد</h1>
+                        <button class="compaign-btn">المزيد</button>
+                    </div>
+                    <div class="compaign compaign2" style="background-image: url('images/compaigns/2.png');">
+                        <h1>دفؤُهُم سعادة</h1>
+                        <button class="compaign-btn">المزيد</button>
+                    </div>
+                    <div class="compaign compaign3" style="background-image: url('images/compaigns/3.png');">
+                        <h1>تكافُل</h1>
+                        <button class="compaign-btn">المزيد</button>
+                    </div>
+                    <div class="compaign-more">
+                        <img src="icons2/next.svg" class="compaign-more-svg" width="50" height="50" />
+                    </div>
+                </div>
+            </div>
+            <div class="projects-container" dir="rtl">
+                <div class="project-h">
+                    <h1>المشاريع</h1>
+                </div>
+                <div class="projects-slider">
+                    <!-- Project Container -->
+                    <div class="project-card">
+                        <div class="project-bg">
+                            <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
+                            <div class="project-date">2024</div>
+                        </div>
+                        <div class="project-info">
+                            <h2>مشروع</h2>
+                            <div class="p-achievements">
+                                <span class="desc">إنجاز </span>
+                                <span class="count">10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-bg">
+                            <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
+                            <div class="project-date">2024</div>
+                        </div>
+                        <div class="project-info">
+                            <h2>مشروع</h2>
+                            <div class="p-achievements">
+                                <span class="desc">إنجاز </span>
+                                <span class="count">10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-bg">
+                            <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
+                            <div class="project-date">2024</div>
+                        </div>
+                        <div class="project-info">
+                            <h2>مشروع</h2>
+                            <div class="p-achievements">
+                                <span class="desc">إنجاز </span>
+                                <span class="count">10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-bg">
+                            <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
+                            <div class="project-date">2024</div>
+                        </div>
+                        <div class="project-info">
+                            <h2>مشروع</h2>
+                            <div class="p-achievements">
+                                <span class="desc">إنجاز </span>
+                                <span class="count">10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-bg">
+                            <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
+                            <div class="project-date">2024</div>
+                        </div>
+                        <div class="project-info">
+                            <h2>مشروع</h2>
+                            <div class="p-achievements">
+                                <span class="desc">إنجاز </span>
+                                <span class="count">10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-more">
+                        <img src="icons2/next.svg" class="compaign-more-svg" width="50" height="50" />
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-
-
     </div>
-
-    </div>
-
     <script>
         document.querySelectorAll('.navbar ul li a').forEach(link => {
             link.addEventListener('click', () => {
                 // Remove 'animated' class from all links
                 document.querySelectorAll('.navbar ul li a').forEach(el => el.classList.remove('animated'));
-
                 // Add 'animated' class to the clicked link
                 link.classList.add('animated');
             });
         });
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) { /* Change 50 to the desired scroll amount */
+            if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
         });
-        const images = ["gallery/01-12-24/5359430019706906763.jpg", "gallery/29-12-24/5442942368832678415.jpg", "gallery/03-12-24/5366581071535268658.jpg",]; // List your image paths here
+        const images = ["gallery/24-12-01/5359430019706906763.jpg", "gallery/24-12-29/5442942368832678415.jpg", "gallery/24-12-03/5366581071535268658.jpg",]; // List your image paths here
         let currentImageIndex = 0;
-
         function changeImage() {
             const imageElement = document.getElementById("changing-image");
             currentImageIndex = (currentImageIndex + 1) % images.length;
             imageElement.src = images[currentImageIndex];
         }
-
         setInterval(changeImage, 5000); // Change image every 5 seconds
+        // JavaScript to enable dragging functionality
+        function initializeSlider(sliderSelector) {
+            const slider = document.querySelector(sliderSelector);
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('active');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2; // The multiplier controls the scroll speed
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        // Initialize sliders
+        initializeSlider('.compaigns-slider');
+        initializeSlider('.projects-slider');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            
+    // Fetch the list of latest folders
+    fetch('folders.json')
+        .then(response => response.json())
+        .then(folders => {
+            // We expect 5 cards, one for each folder
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            folders.forEach((folder, index) => {
+                if (index < projectCards.length) {  // Ensure we don't exceed the number of cards
+                    const projectCard = projectCards[index];
+                    
+                    // Fetch info.json for each folder
+                    fetch(`gallery/${folder}/info.json`)
+                        .then(response => response.json())
+                        .then(project => {
+                            // Update the project card with data from info.json
+                            const img = projectCard.querySelector('img');
+                            const projectDate = projectCard.querySelector('.project-date');
+                            const projectTitle = projectCard.querySelector('h2');
+                            const descElement = projectCard.querySelector('.desc');
+                            const countElement = projectCard.querySelector('.count');
+                            
+                            // Update content
+                            img.src = `gallery/${folder}/thn.jpg`; // Assuming image is stored as "thn.jpg"
+                            projectDate.textContent = project.date;
+                            projectTitle.textContent = project.achievment.name;
+                            descElement.textContent = project.achievment.number;
+                            countElement.textContent = project.achievment.unit;
+                        })
+                        .catch(error => {
+                            console.error('Error loading project data:', error);
+                        });
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error loading folder list:', error);
+        });
+});
+
+
 
     </script>
 </body>
