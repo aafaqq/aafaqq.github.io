@@ -8,6 +8,10 @@
     <title>آفاق</title>
     <link rel="icon" href="icons/invertcrop.png">
     <link rel="stylesheet" href="style.css">
+    
+        <!-- Include Font Awesome library for displaying icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <style>
         @font-face {
             font-family: 'sky-bold';
@@ -690,6 +694,82 @@
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        /* Footer Design */
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            padding: 15px;
+        }
+
+        .footer-section h3 {
+            color: #ffcc00;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .footer-section p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 25px;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-links a:hover {
+            color: #ffcc00;
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 10px;
+            font-size: 20px;
+            color: #bbb;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section h3 {
+                font-size: 20px;
+            }
+
+            .social-links a {
+                margin: 0 10px;
+                font-size: 20px;
+            }
+        }
+
     </style>
 </head>
 
@@ -887,7 +967,43 @@
 
 
         </div>
+                                
+<!--Footer  -->
+        <footer class="footer">
+        <div class="footer-container">
+            <!-- القسم الأول: معلومات المؤسسة -->
+            <div class="footer-section">
+                <h3>عن المؤسسة</h3>
+                <p>مؤسسة آفاق التطوعية تهدف إلى تقديم المساعدات الإنسانية وتطوير المجتمع من خلال مشاريع مستدامة</p>
+            </div>
+    
+            <!-- القسم الثاني: الروابط الاجتماعية -->
+            <div class="footer-section">
+                <h3>تابعنا</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+    
+            <!-- القسم الثالث: معلومات الاتصال -->
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <p><i class="fas fa-envelope"></i> info@aafaqq.org</p>
+                <p><i class="fas fa-phone"></i> +970-123-456-789</p>
+                <p><i class="fas fa-map-marker-alt"></i> غزة، فلسطين</p>
+            </div>
+        </div>
+    
+        <!-- حقوق الملكية -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 مؤسسة آفاق التطوعية جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
     </div>
+
     <script>
         document.querySelectorAll('.navbar ul li a').forEach(link => {
             link.addEventListener('click', () => {
