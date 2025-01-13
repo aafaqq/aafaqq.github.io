@@ -8,10 +8,10 @@
     <title>آفاق</title>
     <link rel="icon" href="icons/invertcrop.png">
     <link rel="stylesheet" href="style.css">
-    
-        <!-- Include Font Awesome library for displaying icons -->
+
+    <!-- Include Font Awesome library for displaying icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
+
     <style>
         @font-face {
             font-family: 'sky-bold';
@@ -97,10 +97,14 @@
         }
 
         .navbar .logo {
+            flex: 1;
+            /* Allow the logo to occupy space */
+            justify-content: center;
+            /* Center horizontally */
             display: flex;
             align-items: center;
-            border-left: 1px solid #c3c3c3;
-            padding-left: 20px;
+            /* border-left: 1px solid #c3c3c3; */
+            /* padding-left: 20px; */
         }
 
         .navbar ul {
@@ -332,6 +336,68 @@
         .donate-button:active {
             opacity: 0.5;
         }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            /* Enable scrolling if needed */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black background with transparency */
+            animation: fadeIn 0.2s ease-out;
+            /* Smooth fade-in animation */
+        }
+
+        .popup-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Animation for popup appearance */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* For when the popup is shown */
+        .popup.show {
+            display: block;
+        }
+
 
         .org-container {
             margin: 0;
@@ -769,16 +835,14 @@
                 font-size: 20px;
             }
         }
-
     </style>
 </head>
 
 <body>
-    <header>مؤسسة آفاق التطوعية | AAFAQQ FOUNDATION</header>
+    <header>فريق آفاق | AAFAQQ TEAM</header>
     <div class="container">
         <div class="navbar">
-            <div class="icons"> <i class="fas fa-user"></i> <i class="fas fa-search"></i> </div>
-            <ul>
+            <!-- <ul>
                 <li>
                     <a href="#contactus" class="contactus">
                         تواصل معنا
@@ -808,12 +872,12 @@
                         الحملات
                         <img src="icons2/collab.svg" width="30" height="30" alt="Icon">
                     </a>
-                </li>
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="icons/invertcrop.png" alt="Logo">
-                    </a>
-                </div>
+                </li> -->
+            <div class="logo">
+                <a href="index.html">
+                    <img src="icons/invertcrop.png" alt="Logo">
+                </a>
+            </div>
             </ul>
         </div>
         <div class="background-section">
@@ -840,8 +904,29 @@
                 </div>
             </div>
             <div class="donate-section">
-                <button class="donate-button">تبرع</button>
+                <button class="donate-button" onclick="openPopup()">تبرع</button>
             </div>
+
+            <!-- Popup Window -->
+            <div id="donationPopup" class="popup" onclick="closePopup(event)">
+                <div class="popup-content" onclick="event.stopPropagation()">
+                    <!-- Prevents closing when clicking inside -->
+                    <span class="close" onclick="closePopup()">&times;</span>
+                    <h3>طرق التبرع المتاحة</h3>
+                    <ul>
+                        <li>بنك فلسطين</li>
+                        <li>فودافون كاش</li>
+                        <li>انستا باي</li>
+                        <li>cryptocurrency</li>
+                        <li>جوال باي</li>
+                        <li>بنك في تركيا</li>
+                        <li>بنك في أمريكا</li>
+                        <li>بنك في الأردن</li>
+                    </ul>
+                    <p>رقم فودافون كاش، 0% عمولة: 01023198521</p>
+                </div>
+            </div>
+
             <!-- Organization Description -->
             <div class="org-container">
                 <div class="org-image">
@@ -857,11 +942,12 @@
                         </b>
                     </p>
                     <p dir="rtl">
-                        <b>مؤسسة آفاق</b> هي منظمة اجتماعية تهدف إلى نشر العدل ودعم المجتمعات في جميع أنحاء العالم. نبحث
+                        <b>فريق آفاق</b> هي منظمة اجتماعية تهدف إلى نشر العدل ودعم المجتمعات في جميع أنحاء العالم. نبحث
                         عن شباب متطوعين يمتلكون شغف القيادة وروح التطوع للمساهمة في تحقيق تأثير إيجابي حقيقي.
                     </p>
                     <div class="join-section">
-                        <button class="join-button">للإنضمام</button>
+                        <button class="join-button"
+                            onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfp_4yRVqLCbjJKq9Z-rZ036VGbomnCvIo9RJ-2b9NsZHUF3g/viewform','_blank')">للإنضمام</button>
                     </div>
                     </p>
                 </div>
@@ -873,19 +959,19 @@
                 <div class="compaigns-slider">
                     <div class="compaign compaign1" style="background-image: url('images/compaigns/1.png');">
                         <h1>إيد بإيد الخير يزيد</h1>
-                        <button class="compaign-btn">المزيد</button>
+                        <!-- <button class="compaign-btn">المزيد</button> -->
                     </div>
                     <div class="compaign compaign2" style="background-image: url('images/compaigns/2.png');">
                         <h1>دفؤُهُم سعادة</h1>
-                        <button class="compaign-btn">المزيد</button>
+                        <!-- <button class="compaign-btn">المزيد</button> -->
                     </div>
                     <div class="compaign compaign3" style="background-image: url('images/compaigns/3.png');">
                         <h1>تكافُل</h1>
-                        <button class="compaign-btn">المزيد</button>
+                        <!-- <button class="compaign-btn">المزيد</button> -->
                     </div>
-                    <div class="compaign-more">
+                    <!-- <div class="compaign-more">
                         <img src="icons2/next.svg" class="compaign-more-svg" width="50" height="50" />
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="projects-container" dir="rtl">
@@ -967,41 +1053,43 @@
 
 
         </div>
-                                
-<!--Footer  -->
+
+        <!--Footer  -->
         <footer class="footer">
-        <div class="footer-container">
-            <!-- القسم الأول: معلومات المؤسسة -->
-            <div class="footer-section">
-                <h3>عن المؤسسة</h3>
-                <p>مؤسسة آفاق التطوعية تهدف إلى تقديم المساعدات الإنسانية وتطوير المجتمع من خلال مشاريع مستدامة</p>
-            </div>
-    
-            <!-- القسم الثاني: الروابط الاجتماعية -->
-            <div class="footer-section">
-                <h3>تابعنا</h3>
-                <div class="social-links">
-                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            <div class="footer-container">
+                <!-- القسم الأول: معلومات المؤسسة -->
+                <div class="footer-section">
+                    <h3>عن الفريق</h3>
+                    <p>نهدف إلى تقديم المساعدات الإنسانية وتطوير المجتمع من خلال مشاريع مستدامة</p>
+                </div>
+
+                <!-- القسم الثاني: الروابط الاجتماعية -->
+                <div class="footer-section">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/aafaqq.team/" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/AafaqqTeam" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <!-- <a href="https://www.instagram.com/aafaqq.team" target="_blank"><i class="fab fa-instagram"></i></a> -->
+                        <a href="https://www.tiktok.com/@aafaqqteam" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <!-- <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a> -->
+                    </div>
+                </div>
+
+                <!-- القسم الثالث: معلومات الاتصال -->
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-envelope"></i> aafaqqfoundation@gmail.com</p>
+                    <p><i class="fab fa-whatsapp-square	"></i> +970-567-135-679</p>
+                    <p><i class="fas fa-map-marker-alt"></i> غزة، فلسطين</p>
                 </div>
             </div>
-    
-            <!-- القسم الثالث: معلومات الاتصال -->
-            <div class="footer-section">
-                <h3>تواصل معنا</h3>
-                <p><i class="fas fa-envelope"></i> info@aafaqq.org</p>
-                <p><i class="fas fa-phone"></i> +970-123-456-789</p>
-                <p><i class="fas fa-map-marker-alt"></i> غزة، فلسطين</p>
+
+            <!-- حقوق الملكية -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 فريق آفاق التطوعي جميع الحقوق محفوظة</p>
             </div>
-        </div>
-    
-        <!-- حقوق الملكية -->
-        <div class="footer-bottom">
-            <p>&copy; 2025 مؤسسة آفاق التطوعية جميع الحقوق محفوظة</p>
-        </div>
-    </footer>
+        </footer>
     </div>
 
     <script>
@@ -1066,47 +1154,128 @@
         initializeSlider('.compaigns-slider');
         initializeSlider('.projects-slider');
 
+        // document.addEventListener('DOMContentLoaded', function () {
+
+        //     // Fetch the list of latest folders
+        //     fetch('folders.json')
+        //         .then(response => response.json())
+        //         .then(folders => {
+        //             // We expect 5 cards, one for each folder
+        //             const projectCards = document.querySelectorAll('.project-card');
+
+        //             folders.forEach((folder, index) => {
+        //                 if (index < projectCards.length) {  // Ensure we don't exceed the number of cards
+        //                     const projectCard = projectCards[index];
+
+        //                     // Fetch info.json for each folder
+        //                     fetch(`gallery/${folder}/info.json`)
+        //                         .then(response => response.json())
+        //                         .then(project => {
+        //                             // Update the project card with data from info.json
+        //                             const img = projectCard.querySelector('img');
+        //                             const projectDate = projectCard.querySelector('.project-date');
+        //                             const projectTitle = projectCard.querySelector('h2');
+        //                             const descElement = projectCard.querySelector('.desc');
+        //                             const countElement = projectCard.querySelector('.count');
+
+        //                             // Update content
+        //                             img.src = `gallery/${folder}/thn.jpg`; // Assuming image is stored as "thn.jpg"
+        //                             projectDate.textContent = project.date;
+        //                             projectTitle.textContent = project.achievment.name;
+        //                             descElement.textContent = project.achievment.number;
+        //                             countElement.textContent = project.achievment.unit;
+        //                         })
+        //                         .catch(error => {
+        //                             console.error('Error loading project data:', error);
+        //                         });
+        //                 }
+        //             });
+        //         })
+        //         .catch(error => {
+        //             console.error('Error loading folder list:', error);
+        //         });
+        // });
         document.addEventListener('DOMContentLoaded', function () {
-            
-    // Fetch the list of latest folders
-    fetch('folders.json')
-        .then(response => response.json())
-        .then(folders => {
-            // We expect 5 cards, one for each folder
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            folders.forEach((folder, index) => {
-                if (index < projectCards.length) {  // Ensure we don't exceed the number of cards
-                    const projectCard = projectCards[index];
-                    
-                    // Fetch info.json for each folder
-                    fetch(`gallery/${folder}/info.json`)
-                        .then(response => response.json())
-                        .then(project => {
-                            // Update the project card with data from info.json
-                            const img = projectCard.querySelector('img');
-                            const projectDate = projectCard.querySelector('.project-date');
-                            const projectTitle = projectCard.querySelector('h2');
-                            const descElement = projectCard.querySelector('.desc');
-                            const countElement = projectCard.querySelector('.count');
-                            
-                            // Update content
-                            img.src = `gallery/${folder}/thn.jpg`; // Assuming image is stored as "thn.jpg"
-                            projectDate.textContent = project.date;
-                            projectTitle.textContent = project.achievment.name;
-                            descElement.textContent = project.achievment.number;
-                            countElement.textContent = project.achievment.unit;
-                        })
-                        .catch(error => {
-                            console.error('Error loading project data:', error);
+            fetch('folders.json')
+                .then(response => response.json())
+                .then(folders => {
+                    const projectsContainer = document.querySelector('.projects-slider');
+                    const projectTemplate = document.querySelector('.project-card'); // Template for cloning
+                    const projectMoreButton = document.querySelector('.project-more');
+
+                    const projectsToShow = 5; // Number of projects to show initially
+                    let currentIndex = 0; // Track current index for loading
+
+                    // Function to populate a project card
+                    function populateProjectCard(card, folder) {
+                        fetch(`gallery/${folder}/info.json`)
+                            .then(response => response.json())
+                            .then(project => {
+                                const img = card.querySelector('img');
+                                const projectDate = card.querySelector('.project-date');
+                                const projectTitle = card.querySelector('h2');
+                                const descElement = card.querySelector('.desc');
+                                const countElement = card.querySelector('.count');
+
+                                img.src = `gallery/${folder}/thn.jpg`; // Thumbnail path
+                                projectDate.textContent = project.date || folder; // Use folder name if date is missing
+                                projectTitle.textContent = project.achievment?.name || "مشروع";
+                                descElement.textContent = project.achievment?.number || "إنجاز";
+                                countElement.textContent = project.achievment?.unit || "0";
+                            })
+                            .catch(error => console.error(`Error loading data for folder ${folder}:`, error));
+                    }
+
+                    // Function to load projects in batches
+                    function loadProjects(batchSize) {
+                        const nextBatch = folders.slice(currentIndex, currentIndex + batchSize);
+
+                        nextBatch.forEach((folder, index) => {
+                            let card;
+                            if (currentIndex + index < 5) {
+                                // Use pre-existing cards for the first 5
+                                card = document.querySelectorAll('.project-card')[currentIndex + index];
+                            } else {
+                                // Clone a new card for subsequent projects
+                                card = projectTemplate.cloneNode(true);
+                                card.style.display = "block"; // Make the card visible
+                                projectsContainer.insertBefore(card, projectMoreButton);
+                            }
+
+                            populateProjectCard(card, folder);
                         });
-                }
-            });
-        })
-        .catch(error => {
-            console.error('Error loading folder list:', error);
+
+                        currentIndex += nextBatch.length;
+
+                        // Hide the "More" button if all projects are loaded
+                        if (currentIndex >= folders.length) {
+                            projectMoreButton.style.display = 'none';
+                        }
+                    }
+
+                    // Initial load of 5 projects
+                    loadProjects(5);
+
+                    // Event listener for "More" button
+                    projectMoreButton.addEventListener('click', function () {
+                        loadProjects(projectsToShow);
+                    });
+                })
+                .catch(error => console.error('Error loading folders.json:', error));
         });
-});
+        function openPopup() {
+            const popup = document.getElementById('donationPopup');
+            popup.classList.add('show'); // Add 'show' class to display the popup
+        }
+
+        function closePopup(event) {
+            const popup = document.getElementById('donationPopup');
+            if (event) {
+                event.stopPropagation(); // Prevent closing when clicking inside the popup content
+            }
+            popup.classList.remove('show'); // Remove 'show' class to hide the popup
+        }
+
 
 
 
