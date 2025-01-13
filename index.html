@@ -768,7 +768,18 @@
             padding: 40px 20px;
             text-align: center;
             font-family: Arial, sans-serif;
+            user-select: text;
         }
+
+        /* Style for the email link */
+        .footer-section a {
+            color: inherit;
+            /* Inherit the color from the parent element (i.e., the text color) */
+            text-decoration: none;
+            /* Remove the underline */
+        }
+
+
 
         .footer-container {
             display: flex;
@@ -904,28 +915,10 @@
                 </div>
             </div>
             <div class="donate-section">
-                <button class="donate-button" onclick="openPopup()">تبرع</button>
+                <button class="donate-button"
+                    onclick="window.open('https://api.whatsapp.com/send?phone=970567135679&text=i%20want%20to%20donate%0A%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D9%86%20%D8%A3%D8%AA%D8%A8%D8%B1%D8%B9','_blank')">تبرع</button>
             </div>
 
-            <!-- Popup Window -->
-            <div id="donationPopup" class="popup" onclick="closePopup(event)">
-                <div class="popup-content" onclick="event.stopPropagation()">
-                    <!-- Prevents closing when clicking inside -->
-                    <span class="close" onclick="closePopup()">&times;</span>
-                    <h3>طرق التبرع المتاحة</h3>
-                    <ul>
-                        <li>بنك فلسطين</li>
-                        <li>فودافون كاش</li>
-                        <li>انستا باي</li>
-                        <li>cryptocurrency</li>
-                        <li>جوال باي</li>
-                        <li>بنك في تركيا</li>
-                        <li>بنك في أمريكا</li>
-                        <li>بنك في الأردن</li>
-                    </ul>
-                    <p>رقم فودافون كاش، 0% عمولة: 01023198521</p>
-                </div>
-            </div>
 
             <!-- Organization Description -->
             <div class="org-container">
@@ -1079,10 +1072,15 @@
                 <!-- القسم الثالث: معلومات الاتصال -->
                 <div class="footer-section">
                     <h3>تواصل معنا</h3>
-                    <p><i class="fas fa-envelope"></i> aafaqqfoundation@gmail.com</p>
-                    <p><i class="fab fa-whatsapp-square	"></i> +970-567-135-679</p>
+                    <p><i class="fas fa-envelope"></i><a
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=aafaqqfoundation@gmail.com"
+                            target="_blank"> aafaqqfoundation@gmail.com</a></p>
+                    <p><i class="fab fa-whatsapp-square"></i><a
+                        href="https://api.whatsapp.com/send?phone=970567135679"
+                        target="_blank"> +970-567-135-679</a></p>
                     <p><i class="fas fa-map-marker-alt"></i> غزة، فلسطين</p>
                 </div>
+
             </div>
 
             <!-- حقوق الملكية -->
