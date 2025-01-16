@@ -12,7 +12,7 @@
     <!-- Include Font Awesome library for displaying icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <style>
+<style>
         @font-face {
             font-family: 'sky-bold';
             src: url('fonts/sky-bold.woff') format('woff');
@@ -250,21 +250,31 @@
         .achievements {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            justify-items: center;
-            /* Centers the items in the grid */
+            justify-content: center;
             gap: 20px;
             text-align: center;
             padding: 20px;
             margin: 0 auto;
             max-width: 1200px;
             box-sizing: border-box;
-            margin-top: 20px;
+            transform: translateY(+10%) scale(0.8);
         }
+        @media (max-width: 768px) {
+                  .achievements{
+                    grid-template-columns: repeat(auto-fit, minmax(157px, 0fr));
 
+                  }
+                  .achievement .icon {
+    width: 60px;
+    height: 60px;
+}
+                
+            
+        }
 
         .achievement {
             background-color: #f7f7f7;
-            width: 200px;
+            /* width: 200px; */
             height: 200px;
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -407,13 +417,20 @@
             background-color: #f0f8ef;
             display: grid;
             align-items: center;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 1fr;
             column-gap: 5px;
         }
 
-        .org-container div img {
-            margin: 0;
+        @media (max-width: 768px) {
+                  .org-container{
+                    grid-template-columns: auto;
+                  }
+                
+            
         }
+   
+
+       
 
         .org-description {
             padding: 0 20px;
@@ -450,6 +467,27 @@
             line-height: 1.6;
             text-align: right;
             direction: rtl;
+        }
+        .org-container div img {
+            width: 60%;
+        }
+        @media (max-width: 768px) {
+                 .org-description p{
+                    /* background-color: #54BC38;
+                    color: #d12121; */
+                    font-size: 23px;
+                    padding:0;
+                  }
+                  .org-container div img {
+            width: 100%;
+            height: 50%;
+        }
+        .org-container{
+            /* display: flex; */
+            padding: 10px;
+            align-items: center;
+            }
+            
         }
 
         .join-section {
@@ -517,7 +555,7 @@
             background-repeat: no-repeat;
             border: 3px solid #ffffff;
             border-radius: 15px;
-            width: 500px;
+            width: 450px;
             height: 300px;
             position: relative;
             flex-shrink: 0;
@@ -528,6 +566,7 @@
             color: #fff;
             overflow: hidden;
         }
+       
 
         .compaign::before {
             content: '';
@@ -552,6 +591,15 @@
         .compaign h1 {
             font-size: 40px;
             font-family: 'sky-bold', serif;
+        }
+        @media (max-width: 768px) {
+            .compaign {
+                width: 200px;
+                height: 103px;
+        }
+        .compaign h1 {
+            font-size: 25px;
+        }
         }
 
         .compaign h1,
@@ -651,6 +699,16 @@
             flex-shrink: 0;
             gap: 10px;
         }
+        @media (max-width: 768px) {
+            .project-card {
+                width: 245px;
+        height: 340px;
+
+        }
+        .projects-slider {
+            gap: 20px;
+        }
+    }
 
         .project-bg {
             position: relative;
@@ -770,18 +828,7 @@
             padding: 40px 20px;
             text-align: center;
             font-family: Arial, sans-serif;
-            user-select: text;
         }
-
-        /* Style for the email link */
-        .footer-section a {
-            color: inherit;
-            /* Inherit the color from the parent element (i.e., the text color) */
-            text-decoration: none;
-            /* Remove the underline */
-        }
-
-
 
         .footer-container {
             display: flex;
@@ -834,6 +881,9 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .resp{
+                padding: 2%;
+            }
             .footer-container {
                 flex-direction: column;
                 align-items: center;
@@ -929,8 +979,8 @@
                         width="90%">
                 </div>
                 <div class="org-description">
-                    <img id="changing-image" src="icons/invert.png" alt="Organization Icon" width="120" height="120"
-                        class="org-icon">
+<!--                     <img id="changing-image" src="icons/invert.png" alt="Organization Icon" width="120" height="120"
+                        class="org-icon"> -->
                     <p dir="rtl">
                         <b>
                             <<دعوة للتغيير ونشر العدالة ورسم أفق بالحوار والدعم الجاد المعنوي والمادي والإعلامي>>
