@@ -1153,47 +1153,7 @@
         initializeSlider('.compaigns-slider');
         initializeSlider('.projects-slider');
 
-        // document.addEventListener('DOMContentLoaded', function () {
 
-        //     // Fetch the list of latest folders
-        //     fetch('folders.json')
-        //         .then(response => response.json())
-        //         .then(folders => {
-        //             // We expect 5 cards, one for each folder
-        //             const projectCards = document.querySelectorAll('.project-card');
-
-        //             folders.forEach((folder, index) => {
-        //                 if (index < projectCards.length) {  // Ensure we don't exceed the number of cards
-        //                     const projectCard = projectCards[index];
-
-        //                     // Fetch info.json for each folder
-        //                     fetch(`gallery/${folder}/info.json`)
-        //                         .then(response => response.json())
-        //                         .then(project => {
-        //                             // Update the project card with data from info.json
-        //                             const img = projectCard.querySelector('img');
-        //                             const projectDate = projectCard.querySelector('.project-date');
-        //                             const projectTitle = projectCard.querySelector('h2');
-        //                             const descElement = projectCard.querySelector('.desc');
-        //                             const countElement = projectCard.querySelector('.count');
-
-        //                             // Update content
-        //                             img.src = `gallery/${folder}/thn.jpg`; // Assuming image is stored as "thn.jpg"
-        //                             projectDate.textContent = project.date;
-        //                             projectTitle.textContent = project.achievment.name;
-        //                             descElement.textContent = project.achievment.number;
-        //                             countElement.textContent = project.achievment.unit;
-        //                         })
-        //                         .catch(error => {
-        //                             console.error('Error loading project data:', error);
-        //                         });
-        //                 }
-        //             });
-        //         })
-        //         .catch(error => {
-        //             console.error('Error loading folder list:', error);
-        //         });
-        // });
         document.addEventListener('DOMContentLoaded', function () {
             fetch('folders.json')
                 .then(response => response.json())
@@ -1237,7 +1197,7 @@
                             } else {
                                 // Clone a new card for subsequent projects
                                 card = projectTemplate.cloneNode(true);
-                                card.style.display = "block"; // Make the card visible
+                                card.style.display = "flex"; // Ensure the card is displayed as flex
                                 projectsContainer.insertBefore(card, projectMoreButton);
                             }
 
@@ -1262,18 +1222,7 @@
                 })
                 .catch(error => console.error('Error loading folders.json:', error));
         });
-        function openPopup() {
-            const popup = document.getElementById('donationPopup');
-            popup.classList.add('show'); // Add 'show' class to display the popup
-        }
 
-        function closePopup(event) {
-            const popup = document.getElementById('donationPopup');
-            if (event) {
-                event.stopPropagation(); // Prevent closing when clicking inside the popup content
-            }
-            popup.classList.remove('show'); // Remove 'show' class to hide the popup
-        }
 
 
 
