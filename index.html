@@ -8,7 +8,7 @@
     <title>آفاق</title>
     <link rel="icon" href="icons/invertcrop.png">
     <link rel="stylesheet" href="style.css">
-    <!-- Include Font Awesome library for displaying icons -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         @font-face {
@@ -700,7 +700,6 @@
             transform: scale(1.1);
         }
 
-        /* Overlay */
         .overlay {
             position: absolute;
             top: 0;
@@ -713,6 +712,11 @@
             transition: opacity 0.3s ease, visibility 0.3s ease;
             z-index: 2;
             backdrop-filter: blur(10px);
+            border: 3px solid #2C3E50;
+            /* Add this line for the border */
+            box-sizing: border-box;
+            /* Ensure the border is included in the element's dimensions */
+            border-radius: 15px;
         }
 
         .project-bg:hover .overlay {
@@ -781,6 +785,33 @@
             width: 100%;
             min-height: 80px;
             box-sizing: border-box;
+            display: flex;
+            /* Add this */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+        }
+
+        .p-achievements {
+            font-size: 14px;
+            color: #f4f4f4;
+            font-weight: bold;
+            font-family: 'sky-bold', serif;
+            display: inline-block;
+            text-align: center;
+            /* Center text */
+        }
+
+        .p-achievements span {
+            font-size: 30px;
+            color: #f4f4f4;
+            font-weight: bold;
+            font-family: 'sky-bold', serif;
+            display: inline-block;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease-in-out;
         }
 
         .project-info h2 {
@@ -791,24 +822,7 @@
             margin: 0;
         }
 
-        .p-achievements {
-            font-size: 14px;
-            color: #f4f4f4;
-            font-weight: bold;
-            font-family: 'sky-bold', serif;
-            display: inline-block;
-        }
-
-        .p-achievements span {
-            font-size: 14px;
-            color: #f4f4f4;
-            font-weight: bold;
-            font-family: 'sky-bold', serif;
-            display: inline-block;
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.5s ease-in-out;
-        }
+       
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -903,6 +917,13 @@
             letter-spacing: 0.5px;
         }
 
+        .footer-section a:visited {
+            color: #fff;
+            /* Set the same color as unvisited links */
+            text-decoration: none;
+            /* Remove underline if needed */
+        }
+
         @media (max-width: 768px) {
             .resp {
                 padding: 2%;
@@ -929,37 +950,6 @@
     <header>فريق آفاق | AAFAQQ TEAM</header>
     <div class="container">
         <div class="navbar">
-            <!-- <ul>
-                <li>
-                    <a href="#contactus" class="contactus">
-                        تواصل معنا
-                        <img src="icons2/contact.svg" width="30" height="30" alt="Icon">
-                    </a>
-                </li>
-                <li>
-                    <a href="#aboutus" class="aboutus">
-                        من نحن؟
-                        <img src="icons2/aboutus.svg" width="30" height="30" alt="Icon">
-                    </a>
-                </li>
-                <li>
-                    <a href="#donate" class="donate">
-                        كيف تتبرع؟
-                        <img src="icons2/donate.svg" width="30" height="30" alt="Icon">
-                    </a>
-                </li>
-                <li>
-                    <a href="#projects" class="projects">
-                        المشاريع
-                        <img src="icons2/projects.svg" width="30" height="30" alt="Icon">
-                    </a>
-                </li>
-                <li>
-                    <a href="#initiatives" class="initiatives">
-                        الحملات
-                        <img src="icons2/collab.svg" width="30" height="30" alt="Icon">
-                    </a>
-                </li> -->
             <div class="logo">
                 <a href="index.html">
                     <img src="icons/invertcrop.png" alt="Logo">
@@ -994,15 +984,13 @@
                 <button class="donate-button"
                     onclick="window.open('https://api.whatsapp.com/send?phone=970567135679&text=I%20want%20to%20donate%0A%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D9%86%20%D8%A3%D8%AA%D8%A8%D8%B1%D8%B9','_blank')">تبرع</button>
             </div>
-            <!-- Organization Description -->
+
             <div class="org-container">
                 <div class="org-image">
                     <img id="changing-image" src="gallery/24-12-01/5359430019706906763.jpg" alt="Organization Image"
                         width="90%">
                 </div>
                 <div class="org-description">
-                    <!--                     <img id="changing-image" src="icons/invert.png" alt="Organization Icon" width="120" height="120"
-                        class="org-icon"> -->
                     <p dir="rtl">
                         <b>
                             <<دعوة للتغيير ونشر العدالة ورسم أفق بالحوار والدعم الجاد المعنوي والمادي والإعلامي>>
@@ -1026,19 +1014,16 @@
                 <div class="compaigns-slider">
                     <div class="compaign compaign1" style="background-image: url('images/compaigns/1.png');">
                         <h1>إيد بإيد الخير يزيد</h1>
-                        <!-- <button class="compaign-btn">المزيد</button> -->
+
                     </div>
                     <div class="compaign compaign2" style="background-image: url('images/compaigns/2.png');">
                         <h1>دفؤُهُم سعادة</h1>
-                        <!-- <button class="compaign-btn">المزيد</button> -->
+
                     </div>
                     <div class="compaign compaign3" style="background-image: url('images/compaigns/3.png');">
                         <h1>تكافُل</h1>
-                        <!-- <button class="compaign-btn">المزيد</button> -->
+
                     </div>
-                    <!-- <div class="compaign-more">
-                        <img src="icons2/next.svg" class="compaign-more-svg" width="50" height="50" />
-                    </div> -->
                 </div>
             </div>
             <div class="projects-container" dir="rtl">
@@ -1046,12 +1031,12 @@
                     <h1>المشاريع</h1>
                 </div>
                 <div class="projects-slider">
-                    <!-- Project Container -->
+
                     <div class="project-card">
                         <div class="project-bg">
                             <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
                             <div class="project-date">2024</div>
-                            <div class="overlay"></div> <!-- White overlay -->
+                            <div class="overlay"></div>
                             <h2 class="project-title">مشروع</h2>
                         </div>
                         <div class="project-info">
@@ -1065,7 +1050,7 @@
                         <div class="project-bg">
                             <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
                             <div class="project-date">2024</div>
-                            <div class="overlay"></div> <!-- White overlay -->
+                            <div class="overlay"></div>
                             <h2 class="project-title">مشروع</h2>
                         </div>
                         <div class="project-info">
@@ -1079,7 +1064,7 @@
                         <div class="project-bg">
                             <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
                             <div class="project-date">2024</div>
-                            <div class="overlay"></div> <!-- White overlay -->
+                            <div class="overlay"></div>
                             <h2 class="project-title">مشروع</h2>
                         </div>
                         <div class="project-info">
@@ -1093,7 +1078,7 @@
                         <div class="project-bg">
                             <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
                             <div class="project-date">2024</div>
-                            <div class="overlay"></div> <!-- White overlay -->
+                            <div class="overlay"></div>
                             <h2 class="project-title">مشروع</h2>
                         </div>
                         <div class="project-info">
@@ -1107,7 +1092,7 @@
                         <div class="project-bg">
                             <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
                             <div class="project-date">2024</div>
-                            <div class="overlay"></div> <!-- White overlay -->
+                            <div class="overlay"></div>
                             <h2 class="project-title">مشروع</h2>
                         </div>
                         <div class="project-info">
@@ -1123,27 +1108,27 @@
                 </div>
             </div>
         </div>
-        <!--Footer  -->
+
         <footer class="footer">
             <div class="footer-container">
-                <!-- القسم الأول: معلومات المؤسسة -->
+
                 <div class="footer-section">
                     <h3>عن الفريق</h3>
                     <p>نهدف إلى تقديم المساعدات الإنسانية وتطوير المجتمع من خلال مشاريع مستدامة</p>
                 </div>
-                <!-- القسم الثاني: الروابط الاجتماعية -->
+
                 <div class="footer-section">
                     <h3>تابعنا</h3>
                     <div class="social-links">
                         <a href="https://www.facebook.com/aafaqq.team/" target="_blank"><i
                                 class="fab fa-facebook"></i></a>
                         <a href="https://x.com/AafaqqTeam" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <!-- <a href="https://www.instagram.com/aafaqq.team" target="_blank"><i class="fab fa-instagram"></i></a> -->
+
                         <a href="https://www.tiktok.com/@aafaqqteam" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <!-- <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a> -->
+
                     </div>
                 </div>
-                <!-- القسم الثالث: معلومات الاتصال -->
+
                 <div class="footer-section">
                     <h3>تواصل معنا</h3>
                     <p><i class="fas fa-envelope"></i><a
@@ -1154,7 +1139,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> غزة، فلسطين</p>
                 </div>
             </div>
-            <!-- حقوق الملكية -->
+
             <div class="footer-bottom">
                 <p>&copy; 2025 فريق آفاق التطوعي جميع الحقوق محفوظة</p>
             </div>
@@ -1163,9 +1148,9 @@
     <script>
         document.querySelectorAll('.navbar ul li a').forEach(link => {
             link.addEventListener('click', () => {
-                // Remove 'animated' class from all links
+
                 document.querySelectorAll('.navbar ul li a').forEach(el => el.classList.remove('animated'));
-                // Add 'animated' class to the clicked link
+
                 link.classList.add('animated');
             });
         });
@@ -1177,15 +1162,15 @@
                 navbar.classList.remove('scrolled');
             }
         });
-        const images = ["gallery/24-12-01/5359430019706906763.jpg", "gallery/24-12-29/5442942368832678415.jpg", "gallery/24-12-03/5366581071535268658.jpg",]; // List your image paths here
+        const images = ["gallery/24-12-01/5359430019706906763.jpg", "gallery/24-12-29/5442942368832678415.jpg", "gallery/24-12-03/5366581071535268658.jpg",];
         let currentImageIndex = 0;
         function changeImage() {
             const imageElement = document.getElementById("changing-image");
             currentImageIndex = (currentImageIndex + 1) % images.length;
             imageElement.src = images[currentImageIndex];
         }
-        setInterval(changeImage, 5000); // Change image every 5 seconds
-        // JavaScript to enable dragging functionality
+        setInterval(changeImage, 5000);
+
         function initializeSlider(sliderSelector) {
             const slider = document.querySelector(sliderSelector);
             let isDown = false;
@@ -1209,11 +1194,11 @@
                 if (!isDown) return;
                 e.preventDefault();
                 const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 2; // The multiplier controls the scroll speed
+                const walk = (x - startX) * 2;
                 slider.scrollLeft = scrollLeft - walk;
             });
         }
-        // Initialize sliders
+
         initializeSlider('.compaigns-slider');
         initializeSlider('.projects-slider');
         document.addEventListener('DOMContentLoaded', function () {
@@ -1221,11 +1206,11 @@
                 .then(response => response.json())
                 .then(folders => {
                     const projectsContainer = document.querySelector('.projects-slider');
-                    const projectTemplate = document.querySelector('.project-card'); // Template for cloning
+                    const projectTemplate = document.querySelector('.project-card');
                     const projectMoreButton = document.querySelector('.project-more');
-                    const projectsToShow = 5; // Number of projects to show initially
-                    let currentIndex = 0; // Track current index for loading
-                    // Function to populate a project card
+                    const projectsToShow = 5;
+                    let currentIndex = 0;
+
                     function populateProjectCard(card, folder) {
                         fetch(`gallery/${folder}/info.json`)
                             .then(response => response.json())
@@ -1235,39 +1220,39 @@
                                 const projectTitle = card.querySelector('h2');
                                 const descElement = card.querySelector('.desc');
                                 const countElement = card.querySelector('.count');
-                                img.src = `gallery/${folder}/thn.jpg`; // Thumbnail path
-                                projectDate.textContent = project.date || folder; // Use folder name if date is missing
+                                img.src = `gallery/${folder}/thn.jpg`;
+                                projectDate.textContent = project.date || folder;
                                 projectTitle.textContent = project.achievment?.name || "مشروع";
                                 descElement.textContent = project.achievment?.number || "إنجاز";
                                 countElement.textContent = project.achievment?.unit || "0";
                             })
                             .catch(error => console.error(`Error loading data for folder ${folder}:`, error));
                     }
-                    // Function to load projects in batches
+
                     function loadProjects(batchSize) {
                         const nextBatch = folders.slice(currentIndex, currentIndex + batchSize);
                         nextBatch.forEach((folder, index) => {
                             let card;
                             if (currentIndex + index < 5) {
-                                // Use pre-existing cards for the first 5
+
                                 card = document.querySelectorAll('.project-card')[currentIndex + index];
                             } else {
-                                // Clone a new card for subsequent projects
+
                                 card = projectTemplate.cloneNode(true);
-                                card.style.display = "flex"; // Ensure the card is displayed as flex
+                                card.style.display = "flex";
                                 projectsContainer.insertBefore(card, projectMoreButton);
                             }
                             populateProjectCard(card, folder);
                         });
                         currentIndex += nextBatch.length;
-                        // Hide the "More" button if all projects are loaded
+
                         if (currentIndex >= folders.length) {
                             projectMoreButton.style.display = 'none';
                         }
                     }
-                    // Initial load of 5 projects
+
                     loadProjects(5);
-                    // Event listener for "More" button
+
                     projectMoreButton.addEventListener('click', function () {
                         loadProjects(projectsToShow);
                     });
