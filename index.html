@@ -8,11 +8,9 @@
     <title>آفاق</title>
     <link rel="icon" href="icons/invertcrop.png">
     <link rel="stylesheet" href="style.css">
-
     <!-- Include Font Awesome library for displaying icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-<style>
+    <style>
         @font-face {
             font-family: 'sky-bold';
             src: url('fonts/sky-bold.woff') format('woff');
@@ -44,11 +42,8 @@
         }
 
         img {
-            /* Prevent dragging in browsers that support this property */
             -webkit-user-drag: none;
-            /* For Safari */
         }
-
 
         body::before {
             content: '';
@@ -90,21 +85,15 @@
             opacity: 1;
         }
 
-
-
         .navbar .logo img {
             height: 40px;
         }
 
         .navbar .logo {
             flex: 1;
-            /* Allow the logo to occupy space */
             justify-content: center;
-            /* Center horizontally */
             display: flex;
             align-items: center;
-            /* border-left: 1px solid #c3c3c3; */
-            /* padding-left: 20px; */
         }
 
         .navbar ul {
@@ -259,22 +248,20 @@
             box-sizing: border-box;
             transform: translateY(+10%) scale(0.8);
         }
-        @media (max-width: 768px) {
-                  .achievements{
-                    grid-template-columns: repeat(auto-fit, minmax(157px, 0fr));
 
-                  }
-                  .achievement .icon {
-    width: 60px;
-    height: 60px;
-}
-                
-            
+        @media (max-width: 768px) {
+            .achievements {
+                grid-template-columns: repeat(auto-fit, minmax(157px, 0fr));
+            }
+
+            .achievement .icon {
+                width: 60px;
+                height: 60px;
+            }
         }
 
         .achievement {
             background-color: #f7f7f7;
-            /* width: 200px; */
             height: 200px;
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -349,23 +336,17 @@
             opacity: 0.5;
         }
 
-        /* Popup Styles */
         .popup {
             display: none;
-            /* Hidden by default */
             position: fixed;
             z-index: 1;
-            /* Sit on top */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            /* Enable scrolling if needed */
             background-color: rgba(0, 0, 0, 0.5);
-            /* Black background with transparency */
             animation: fadeIn 0.2s ease-out;
-            /* Smooth fade-in animation */
         }
 
         .popup-content {
@@ -394,7 +375,6 @@
             cursor: pointer;
         }
 
-        /* Animation for popup appearance */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -405,11 +385,9 @@
             }
         }
 
-        /* For when the popup is shown */
         .popup.show {
             display: block;
         }
-
 
         .org-container {
             margin: 0;
@@ -422,15 +400,10 @@
         }
 
         @media (max-width: 768px) {
-                  .org-container{
-                    grid-template-columns: auto;
-                  }
-                
-            
+            .org-container {
+                grid-template-columns: auto;
+            }
         }
-   
-
-       
 
         .org-description {
             padding: 0 20px;
@@ -468,26 +441,28 @@
             text-align: right;
             direction: rtl;
         }
+
         .org-container div img {
             width: 60%;
         }
+
         @media (max-width: 768px) {
-                 .org-description p{
-                    /* background-color: #54BC38;
+            .org-description p {
+                /* background-color: #54BC38;
                     color: #d12121; */
-                    font-size: 23px;
-                    padding:0;
-                  }
-                  .org-container div img {
-            width: 100%;
-            height: 50%;
-        }
-        .org-container{
-            /* display: flex; */
-            padding: 10px;
-            align-items: center;
+                font-size: 23px;
+                padding: 0;
             }
-            
+
+            .org-container div img {
+                width: 100%;
+                height: 50%;
+            }
+
+            .org-container {
+                padding: 10px;
+                align-items: center;
+            }
         }
 
         .join-section {
@@ -566,7 +541,6 @@
             color: #fff;
             overflow: hidden;
         }
-       
 
         .compaign::before {
             content: '';
@@ -592,14 +566,16 @@
             font-size: 40px;
             font-family: 'sky-bold', serif;
         }
+
         @media (max-width: 768px) {
             .compaign {
                 width: 200px;
                 height: 103px;
-        }
-        .compaign h1 {
-            font-size: 25px;
-        }
+            }
+
+            .compaign h1 {
+                font-size: 25px;
+            }
         }
 
         .compaign h1,
@@ -649,13 +625,14 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
+        /* Projects Container */
         .projects-container {
             max-width: 100%;
             overflow-x: hidden;
             padding: 20px;
-
         }
 
+        /* Projects Slider */
         .projects-slider {
             display: flex;
             align-items: center;
@@ -665,9 +642,23 @@
             padding: 10px 20px;
             direction: rtl;
             user-select: none;
-
         }
 
+        .projects-slider:active {
+            cursor: grabbing;
+        }
+
+        /* Custom Scrollbar */
+        .projects-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .projects-slider::-webkit-scrollbar-thumb {
+            background-color: #2C3E50;
+            border-radius: 4px;
+        }
+
+        /* Project Heading */
         .project-h {
             padding-right: 20px;
             font-size: 20px;
@@ -678,19 +669,7 @@
             text-shadow: 2px 2px 5px rgba(94, 93, 93, 0.5);
         }
 
-        .projects-slider:active {
-            cursor: grabbing;
-        }
-
-        .projects-slider::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .projects-slider::-webkit-scrollbar-thumb {
-            background-color: #2C3E50;
-            border-radius: 4px;
-        }
-
+        /* Project Card */
         .project-card {
             display: flex;
             flex-direction: column;
@@ -699,23 +678,15 @@
             flex-shrink: 0;
             gap: 10px;
         }
-        @media (max-width: 768px) {
-            .project-card {
-                width: 245px;
-        height: 340px;
 
-        }
-        .projects-slider {
-            gap: 20px;
-        }
-    }
-
+        /* Project Background */
         .project-bg {
             position: relative;
             width: 100%;
             height: 300px;
             border-radius: 15px;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .project-bg img {
@@ -727,13 +698,60 @@
 
         .project-bg:hover img {
             transform: scale(1.1);
-            /* Zoom effect on hover */
         }
 
+        /* Overlay */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-bg:hover .overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Project Title */
+        .project-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-family: 'sky-bold', serif;
+            color: #2C3E50;
+            background-color: transparent;
+            padding: 10px 20px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 3;
+            text-align: center;
+            max-width: 90%;
+            box-sizing: border-box;
+            white-space: normal;
+            word-break: normal;
+        }
+
+        .project-bg:hover .project-title {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Project Date */
         .project-date {
             position: absolute;
             top: -30px;
-            /* Position it above the container (hidden initially) */
             left: 10px;
             background: rgba(255, 255, 255, 0.8);
             padding: 5px 10px;
@@ -743,21 +761,17 @@
             color: #2C3E50;
             font-weight: bold;
             opacity: 0;
-            /* Initially hidden */
             pointer-events: none;
-            /* Avoid interaction */
             transition: top 0.3s ease, opacity 0.3s ease;
-            /* Animate both top and opacity */
-            z-index: 2;
+            z-index: 3;
         }
 
         .project-bg:hover .project-date {
             top: 10px;
-            /* Move the date into view */
             opacity: 1;
-            /* Make the date visible */
         }
 
+        /* Project Info */
         .project-info {
             background-color: #2C3E50;
             padding: 10px 15px;
@@ -765,18 +779,14 @@
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
-            /* Ensure it matches the width of the project-bg */
             min-height: 80px;
-            /* Adjust to your preference */
             box-sizing: border-box;
-            /* Ensure padding is included in height */
         }
 
         .project-info h2 {
             font-size: 18px;
-            font-family: 'sa';
-            color: #f4f4f4;
             font-family: 'sky-bold', serif;
+            color: #f4f4f4;
             font-weight: bold;
             margin: 0;
         }
@@ -796,10 +806,25 @@
             font-family: 'sky-bold', serif;
             display: inline-block;
             opacity: 1;
-            /* Ensure 'إنجاز' is visible */
             transform: translateY(0);
-            /* Ensure it's in the correct position */
             transition: all 0.5s ease-in-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-card {
+                width: 245px;
+                height: 340px;
+            }
+
+            .projects-slider {
+                gap: 20px;
+            }
+
+            .project-title {
+                font-size: 18px;
+                padding: 8px 16px;
+            }
         }
 
         .project-more {
@@ -821,7 +846,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Footer Design */
         .footer {
             background-color: #222;
             color: #fff;
@@ -879,11 +903,11 @@
             letter-spacing: 0.5px;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .resp{
+            .resp {
                 padding: 2%;
             }
+
             .footer-container {
                 flex-direction: column;
                 align-items: center;
@@ -970,8 +994,6 @@
                 <button class="donate-button"
                     onclick="window.open('https://api.whatsapp.com/send?phone=970567135679&text=I%20want%20to%20donate%0A%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D9%86%20%D8%A3%D8%AA%D8%A8%D8%B1%D8%B9','_blank')">تبرع</button>
             </div>
-
-
             <!-- Organization Description -->
             <div class="org-container">
                 <div class="org-image">
@@ -979,7 +1001,7 @@
                         width="90%">
                 </div>
                 <div class="org-description">
-<!--                     <img id="changing-image" src="icons/invert.png" alt="Organization Icon" width="120" height="120"
+                    <!--                     <img id="changing-image" src="icons/invert.png" alt="Organization Icon" width="120" height="120"
                         class="org-icon"> -->
                     <p dir="rtl">
                         <b>
@@ -1029,9 +1051,10 @@
                         <div class="project-bg">
                             <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
                             <div class="project-date">2024</div>
+                            <div class="overlay"></div> <!-- White overlay -->
+                            <h2 class="project-title">مشروع</h2>
                         </div>
                         <div class="project-info">
-                            <h2>مشروع</h2>
                             <div class="p-achievements">
                                 <span class="desc">إنجاز </span>
                                 <span class="count">10</span>
@@ -1042,9 +1065,10 @@
                         <div class="project-bg">
                             <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
                             <div class="project-date">2024</div>
+                            <div class="overlay"></div> <!-- White overlay -->
+                            <h2 class="project-title">مشروع</h2>
                         </div>
                         <div class="project-info">
-                            <h2>مشروع</h2>
                             <div class="p-achievements">
                                 <span class="desc">إنجاز </span>
                                 <span class="count">10</span>
@@ -1055,9 +1079,10 @@
                         <div class="project-bg">
                             <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
                             <div class="project-date">2024</div>
+                            <div class="overlay"></div> <!-- White overlay -->
+                            <h2 class="project-title">مشروع</h2>
                         </div>
                         <div class="project-info">
-                            <h2>مشروع</h2>
                             <div class="p-achievements">
                                 <span class="desc">إنجاز </span>
                                 <span class="count">10</span>
@@ -1068,9 +1093,10 @@
                         <div class="project-bg">
                             <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
                             <div class="project-date">2024</div>
+                            <div class="overlay"></div> <!-- White overlay -->
+                            <h2 class="project-title">مشروع</h2>
                         </div>
                         <div class="project-info">
-                            <h2>مشروع</h2>
                             <div class="p-achievements">
                                 <span class="desc">إنجاز </span>
                                 <span class="count">10</span>
@@ -1081,9 +1107,10 @@
                         <div class="project-bg">
                             <img src="images/noimage.jpg" alt="Project Image" width="100%" height="100%">
                             <div class="project-date">2024</div>
+                            <div class="overlay"></div> <!-- White overlay -->
+                            <h2 class="project-title">مشروع</h2>
                         </div>
                         <div class="project-info">
-                            <h2>مشروع</h2>
                             <div class="p-achievements">
                                 <span class="desc">إنجاز </span>
                                 <span class="count">10</span>
@@ -1095,10 +1122,7 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
-
         <!--Footer  -->
         <footer class="footer">
             <div class="footer-container">
@@ -1107,7 +1131,6 @@
                     <h3>عن الفريق</h3>
                     <p>نهدف إلى تقديم المساعدات الإنسانية وتطوير المجتمع من خلال مشاريع مستدامة</p>
                 </div>
-
                 <!-- القسم الثاني: الروابط الاجتماعية -->
                 <div class="footer-section">
                     <h3>تابعنا</h3>
@@ -1120,7 +1143,6 @@
                         <!-- <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a> -->
                     </div>
                 </div>
-
                 <!-- القسم الثالث: معلومات الاتصال -->
                 <div class="footer-section">
                     <h3>تواصل معنا</h3>
@@ -1131,16 +1153,13 @@
                             target="_blank"> +970-567-135-679</a></p>
                     <p><i class="fas fa-map-marker-alt"></i> غزة، فلسطين</p>
                 </div>
-
             </div>
-
             <!-- حقوق الملكية -->
             <div class="footer-bottom">
                 <p>&copy; 2025 فريق آفاق التطوعي جميع الحقوق محفوظة</p>
             </div>
         </footer>
     </div>
-
     <script>
         document.querySelectorAll('.navbar ul li a').forEach(link => {
             link.addEventListener('click', () => {
@@ -1172,24 +1191,20 @@
             let isDown = false;
             let startX;
             let scrollLeft;
-
             slider.addEventListener('mousedown', (e) => {
                 isDown = true;
                 slider.classList.add('active');
                 startX = e.pageX - slider.offsetLeft;
                 scrollLeft = slider.scrollLeft;
             });
-
             slider.addEventListener('mouseleave', () => {
                 isDown = false;
                 slider.classList.remove('active');
             });
-
             slider.addEventListener('mouseup', () => {
                 isDown = false;
                 slider.classList.remove('active');
             });
-
             slider.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
                 e.preventDefault();
@@ -1198,12 +1213,9 @@
                 slider.scrollLeft = scrollLeft - walk;
             });
         }
-
         // Initialize sliders
         initializeSlider('.compaigns-slider');
         initializeSlider('.projects-slider');
-
-
         document.addEventListener('DOMContentLoaded', function () {
             fetch('folders.json')
                 .then(response => response.json())
@@ -1211,10 +1223,8 @@
                     const projectsContainer = document.querySelector('.projects-slider');
                     const projectTemplate = document.querySelector('.project-card'); // Template for cloning
                     const projectMoreButton = document.querySelector('.project-more');
-
                     const projectsToShow = 5; // Number of projects to show initially
                     let currentIndex = 0; // Track current index for loading
-
                     // Function to populate a project card
                     function populateProjectCard(card, folder) {
                         fetch(`gallery/${folder}/info.json`)
@@ -1225,7 +1235,6 @@
                                 const projectTitle = card.querySelector('h2');
                                 const descElement = card.querySelector('.desc');
                                 const countElement = card.querySelector('.count');
-
                                 img.src = `gallery/${folder}/thn.jpg`; // Thumbnail path
                                 projectDate.textContent = project.date || folder; // Use folder name if date is missing
                                 projectTitle.textContent = project.achievment?.name || "مشروع";
@@ -1234,11 +1243,9 @@
                             })
                             .catch(error => console.error(`Error loading data for folder ${folder}:`, error));
                     }
-
                     // Function to load projects in batches
                     function loadProjects(batchSize) {
                         const nextBatch = folders.slice(currentIndex, currentIndex + batchSize);
-
                         nextBatch.forEach((folder, index) => {
                             let card;
                             if (currentIndex + index < 5) {
@@ -1250,21 +1257,16 @@
                                 card.style.display = "flex"; // Ensure the card is displayed as flex
                                 projectsContainer.insertBefore(card, projectMoreButton);
                             }
-
                             populateProjectCard(card, folder);
                         });
-
                         currentIndex += nextBatch.length;
-
                         // Hide the "More" button if all projects are loaded
                         if (currentIndex >= folders.length) {
                             projectMoreButton.style.display = 'none';
                         }
                     }
-
                     // Initial load of 5 projects
                     loadProjects(5);
-
                     // Event listener for "More" button
                     projectMoreButton.addEventListener('click', function () {
                         loadProjects(projectsToShow);
@@ -1272,11 +1274,6 @@
                 })
                 .catch(error => console.error('Error loading folders.json:', error));
         });
-
-
-
-
-
     </script>
 </body>
 
